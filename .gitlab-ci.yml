@@ -10,7 +10,7 @@ test:
     allow_failure: false
     rules:
         - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-          when: on_sucess
+          when: on_success
         - when: never
     script:
         - cd src/{CI_PROJECT_NAME}.Tests
