@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADManager", "ADManager\ADManager.csproj", "{590514E5-6954-4347-AFC5-C7C803BD309E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "ADManager.Tests\Tests.csproj", "{89437E1A-ACC9-4649-9E4B-F14A591D9F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{590514E5-6954-4347-AFC5-C7C803BD309E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590514E5-6954-4347-AFC5-C7C803BD309E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590514E5-6954-4347-AFC5-C7C803BD309E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590514E5-6954-4347-AFC5-C7C803BD309E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89437E1A-ACC9-4649-9E4B-F14A591D9F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89437E1A-ACC9-4649-9E4B-F14A591D9F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89437E1A-ACC9-4649-9E4B-F14A591D9F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89437E1A-ACC9-4649-9E4B-F14A591D9F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B202717-7465-47E1-B602-734CA01F5AA5}
+	EndGlobalSection
+EndGlobal
