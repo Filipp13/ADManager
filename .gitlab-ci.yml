@@ -13,7 +13,7 @@ test:
           when: on_success
         - when: never
     script:
-        - cd src/{CI_PROJECT_NAME}.Tests
+        - cd src/${CI_PROJECT_NAME}.Tests
         - dotnet test
 
 deploy:
