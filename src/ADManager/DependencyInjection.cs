@@ -24,8 +24,6 @@ namespace ADManager
 
             services.Configure<ADManagerOptions>(configuration.GetSection(ADManagerOptions.SectionName));
 
-            services.AddSingleton<ADManagerSecurityOptions>();
-
             if (aDManagerSecurityOptions is null)
             {
                 throw new InvalidOperationException(
