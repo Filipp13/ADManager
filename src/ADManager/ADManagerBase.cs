@@ -11,14 +11,19 @@ namespace ADManager
         private readonly LdapDirectoryIdentifier identifier;
         private readonly NetworkCredential credential;
 
-        public ADManagerBase(IOptions<ADManagerOptions> aDManagmentOptions)
+        public ADManagerBase(
+            IOptions<ADManagerOptions> aDManagmentOptions,
+            IOptions<ADManagerSecurityOptions> aDManagerSecurityOptions)
         {
             _ = aDManagmentOptions
-                ?? throw new ArgumentNullException(nameof(aDManagmentOptions.Value));
+                ?? throw new ArgumentNullException(nameof(aDManagmentOptions));
             identifier = new LdapDirectoryIdentifier(aDManagmentOptions.Value.Address, aDManagmentOptions.Value.Port);
+
+            _ = aDManagerSecurityOptions
+                ?? throw new ArgumentNullException(nameof(aDManagerSecurityOptions));
             credential = new NetworkCredential(
-                Environment.GetEnvironmentVariable("UserADLogin"),
-                Environment.GetEnvironmentVariable("UserADPassword"));
+                aDManagerSecurityOptions.Value.Login,
+                aDManagerSecurityOptions.Value.Password);
         }
 
         protected async Task<SearchResponse> SendADRequestAsync(

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace ADManager
@@ -8,7 +9,8 @@ namespace ADManager
     {
         public static IServiceCollection AddADManagment(
          this IServiceCollection services,
-         IConfiguration configuration)
+         IConfiguration configuration,
+         ADManagerSecurityOptions aDManagerSecurityOptions)
         {
             var options = configuration
                       .GetSection(ADManagerOptions.SectionName)
@@ -17,10 +19,20 @@ namespace ADManager
             if (options is null)
             {
                 throw new InvalidOperationException(
-                    $"Configuration options {ADManagerOptions.SectionName} is absent");
+                    $"Configuration options {ADManagerOptions.SectionName} are absent");
             }
 
             services.Configure<ADManagerOptions>(configuration.GetSection(ADManagerOptions.SectionName));
+
+            services.AddSingleton<ADManagerSecurityOptions>();
+
+            if (aDManagerSecurityOptions is null)
+            {
+                throw new InvalidOperationException(
+                    "ADManagerSecurityOptions options are absent");
+            }
+
+            Options.Create(aDManagerSecurityOptions);
 
             return services.AddScoped<IADManager, ADManager>();
         }

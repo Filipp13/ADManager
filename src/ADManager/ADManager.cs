@@ -6,8 +6,10 @@ namespace ADManager
 {
     public sealed class ADManager : ADManagerBase, IADManager
     {
-        public ADManager(IOptions<ADManagerOptions> aDManagmentOptions)
-            : base(aDManagmentOptions) { }
+        public ADManager(
+            IOptions<ADManagerOptions> aDManagmentOptions,
+            IOptions<ADManagerSecurityOptions> aDManagerSecurityOptions)
+            : base(aDManagmentOptions, aDManagerSecurityOptions) { }
 
         public Task<bool> IsUsersInsideGroupAsync(string groupName, string login)
         => IsUsersInsideGroupAsync("Users", groupName, login);
