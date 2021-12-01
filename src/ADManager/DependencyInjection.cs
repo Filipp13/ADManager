@@ -30,7 +30,7 @@ namespace ADManager
                     "ADManagerSecurityOptions options are absent");
             }
 
-            Options.Create(aDManagerSecurityOptions);
+            services.AddSingleton(aDManagerSecurityOptions);
 
             return services.AddScoped<IADManager, ADManager>();
         }
