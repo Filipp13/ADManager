@@ -15,7 +15,7 @@ namespace Tests
             Mock<IConfiguration> configurationSectionStub = new Mock<IConfiguration>();
             IServiceCollection services = new ServiceCollection();
             Assert.Throws<ArgumentNullException>(() => {
-                services.AddADManagment(configurationSectionStub.Object, new ADManagerSecurityOptions("",""));
+                services.AddADManagment(configurationSectionStub.Object, new ADManagerSecurityOptions());
                 var context = services.BuildServiceProvider().GetService<IADManager>();
             });
         }
@@ -32,7 +32,7 @@ namespace Tests
 
             IServiceCollection services = new ServiceCollection();
             Assert.Throws<InvalidOperationException>(() => {
-                services.AddADManagment(mockConfig.Object, new ADManagerSecurityOptions("",""));
+                services.AddADManagment(mockConfig.Object, new ADManagerSecurityOptions());
                 var context = services.BuildServiceProvider().GetService<IADManager>();
             });
         }
