@@ -13,7 +13,7 @@ namespace ADManager
 
         public ADManagerBase(
             IOptions<ADManagerOptions> aDManagmentOptions,
-            IOptions<ADManagerSecurityOptions> aDManagerSecurityOptions)
+            ADManagerSecurityOptions aDManagerSecurityOptions)
         {
             _ = aDManagmentOptions
                 ?? throw new ArgumentNullException(nameof(aDManagmentOptions));
@@ -22,8 +22,8 @@ namespace ADManager
             _ = aDManagerSecurityOptions
                 ?? throw new ArgumentNullException(nameof(aDManagerSecurityOptions));
             credential = new NetworkCredential(
-                aDManagerSecurityOptions.Value.Login,
-                aDManagerSecurityOptions.Value.Password);
+                aDManagerSecurityOptions.Login,
+                aDManagerSecurityOptions.Password);
         }
 
         protected async Task<SearchResponse> SendADRequestAsync(
